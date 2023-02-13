@@ -1,0 +1,12 @@
+/* @theme workshop */
+
+@import 'default';
+
+section.roadmap ul {
+  font-size: 90%;
+  margin-bottom: 100px;
+}
+
+section.roadmap ul li p {
+  margin: 0px;
+}

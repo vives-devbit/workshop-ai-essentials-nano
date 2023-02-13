@@ -1,0 +1,39 @@
+name: Build MARP Slides
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: master
+
+      - name: Marp Build HTML (_slides dist)
+        uses: docker://marpteam/marp-cli:v2.3.0
+        with:
+          args: --allow-local-files -I slides/ -o slides/dist
+        env:
+          MARP_USER: root:root
+
+      - name: Marp Build PDF (temp directory dist)
+        uses: docker://marpteam/marp-cli:v2.3.0
+        with:
+          args: --allow-local-files --pdf -I slides/ -o slides/dist
+        env:
+          MARP_USER: root:root
+
+      - name: Copy images
+        run: cp -r slides/img slides/dist
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

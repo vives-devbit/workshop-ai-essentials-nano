@@ -2,11 +2,24 @@
 
 This is a workshop for secondary schools on AI essentials.
 
+This workshop is based on the following tutorials:
+
+* [TensorFlow Lite gesture training tutorial](https://github.com/arduino/ArduinoTensorFlowLiteTutorials).
+* [Get Started With Machine Learning on Arduino](https://docs.arduino.cc/tutorials/nano-33-ble-sense/get-started-with-machine-learning)
+* [TensorFlow Lite for Microcontrollers TensorFlow Website](https://www.tensorflow.org/lite/microcontrollers)
+* [AI@EDGE Workshop](https://ai-edge-workshop.netlify.app/)
+
 ## Overview
 
 1. Introduction into AI
 2. Hello World on Microcontroller (sinus wave)
 3. Flex your muscles (edge impuls)
+
+### Dependencies
+
+* Board: Arduino Mbed OS Nano Boards
+* Library: Arduino_LSM9DS1
+* Library: Harvard_TinyMLx
 
 ## Raspberry Pi OS image
 
@@ -39,3 +52,8 @@ All project files can be found in the repository of the workshop. The files are 
 ## Issues
 
 Feel free to submit issues and enhancement requests.
+
+## Other Useful Sources
+
+* [Say hello to the "Hello, World" of machine learning](https://developers.google.com/codelabs/tensorflow-1-helloworld)
+* [Deep Learning](https://srdas.github.io/DLBook/)
