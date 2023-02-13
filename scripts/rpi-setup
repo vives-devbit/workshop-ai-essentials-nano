@@ -163,3 +163,10 @@ sudo sed -i 's/#xserver-command=X/xserver-command=X -s 0 -p 0 -dpms/g' /etc/ligh
 echo "-------------------------------------------"
 echo "Done ..."
 echo "-------------------------------------------"
+
+
+read -p "Press any key to reboot or 'q' to quit." answer
+case $answer in
+  [qQ]* ) exit;;
+  * ) sudo reboot;;
+esac
