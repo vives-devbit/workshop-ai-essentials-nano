@@ -1,0 +1,123 @@
+#!/usr/bin/env bash
+
+# Call me with: 
+#    curl -sL http://bit.do/lorawan-workshop | bash -s --
+
+echo '    ___    ____                                   ';
+echo '   /   |  /  _/                                   ';
+echo '  / /| |  / /                                     ';
+echo ' / ___ |_/ /                                      ';
+echo '/_/ _|_/___/                   __  _       __     ';
+echo '   / ____/____________  ____  / /_(_)___ _/ /____ ';
+echo '  / __/ / ___/ ___/ _ \/ __ \/ __/ / __ `/ / ___/ ';
+echo ' / /___(__  |__  )  __/ / / / /_/ / /_/ / (__  )  ';
+echo '/_____/____/____/\___/_/ /_/\__/_/\__,_/_/____/   ';
+echo '--------------------------------------------------';
+echo "Setting up Raspberry Pi for the AI Essentials workshop"
+echo "Sit back, this is going to take a while ..."
+
+echo "-------------------------------------------"
+echo "Should not be run as root"
+echo "-------------------------------------------"
+
+if [ $(id --u) == "0" ]; then
+  echo "Please don't run this script as root"
+  exit -1
+fi
+
+echo "-------------------------------------------"
+echo "Updating the system"
+echo "-------------------------------------------"
+sudo apt update
+sudo apt upgrade -y
+
+echo "-------------------------------------------"
+echo "Installing some general dependencies"
+echo "-------------------------------------------"
+sudo apt install git -y
+
+echo "-------------------------------------------"
+echo "Downloading and installing Arduino using AppImage"
+echo "-------------------------------------------"
+# For the moment Arduino IDE does not officialy supports an 
+# ARM architecture for the v2 IDE. Will come later.
+# This Koen dude did the build for us. So let's use that.
+
+sudo apt install zlib1g-dev fuse libfuse-dev
+cd
+if [ ! -f "Arduino.AppImage" ]; then
+  wget https://github.com/koendv/arduino-ide-raspberrypi/releases/download/2.0.2/Linux_ARM64_app_image.zip
+  unzip Linux_ARM64_app_image.zip
+  mv arduino-ide_2.0.2_Linux_ARM64.AppImage Arduino.AppImage
+  chmod +x Arduino.AppImage
+
+  cat > $HOME/Desktop/Arduino <<EOF
+[Desktop Entry]
+Comment=Arduino IDE
+Terminal=false
+Name=Arduino
+Exec=$HOME/Arduino.AppImage
+Type=Application
+Icon=/usr/share/icons/Adwaita/512x512/apps/utilities-terminal.png
+EOF
+
+fi
+
+echo "-------------------------------------------"
+echo "Downloading and installing Arduino CLI"
+echo "-------------------------------------------"
+
+# More info @ https://arduino.github.io/arduino-cli/0.29/
+
+if [ ! arduino-cli --version ]; then
+  # Install arduino cli
+  curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+  echo 'export PATH=$HOME/bin:${PATH}' >> $HOME/.bashrc
+fi
+
+echo "-------------------------------------------"
+echo "Downloading and installing Nano 33 BLE Sense Core Package"
+echo "-------------------------------------------"
+
+# Get the official board package names
+# > arduino-cli board listall nano
+
+# Install the Board Definition (Arduino Mbed OS Nano Boards by Arduino v3.5.4)
+arduino-cli core install arduino:mbed_nano
+
+echo "-------------------------------------------"
+echo "Downloading and installing some Arduino libraries"
+echo "-------------------------------------------"
+
+# Find libraries using:
+# > arduino-cli lib search Arduino_LSM9DS1
+
+arduino-cli lib install Arduino_LSM9DS1
+arduino-cli lib install Harvard_TinyMLx
+
+echo "-------------------------------------------"
+echo "Installing tensorflow"
+echo "-------------------------------------------"
+
+sudo pip install -y tensorflow==2.11.0
+sudo pip install -y pandas
+sudo pip install -y matplotlib
+
+sudo apt install -y xxd
+
+echo "-------------------------------------------"
+echo "Installing Jupyter Notebook"
+echo "-------------------------------------------"
+
+sudo apt install libffi-dev -y
+sudo -H pip3 install jupyter
+sudo -H pip3 install pygments
+
+if [ ! -f "$HOME/.jupyter/jupyter_notebook_config.py" ]; then
+  jupyter-notebook --generate-config
+  grep -qxF 'c.NotebookApp.open_browser = False' $HOME/.jupyter/jupyter_notebook_config.py || echo "c.NotebookApp.open_browser = False" >>  $HOME/.jupyter/jupyter_notebook_config.py
+fi
+
+echo "-------------------------------------------"
+echo "Done ..."
+echo "-------------------------------------------"
