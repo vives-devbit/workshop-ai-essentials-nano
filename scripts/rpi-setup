@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Call me with: 
-#    curl -sL http://bit.do/lorawan-workshop | bash -s --
+#    curl -sL https://bit.ly/setup-ai-rpi | bash -s --
 
 echo '    ___    ____                                   ';
 echo '   /   |  /  _/                                   ';

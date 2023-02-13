@@ -20,5 +20,5 @@ This is a workshop for secondary schools on AI essentials.
 Install the script as follows:
 
 ```bash
-
+curl -sL https://bit.ly/setup-ai-rpi | bash -s --
 ```
