@@ -101,9 +101,9 @@ echo "-------------------------------------------"
 echo "Installing tensorflow"
 echo "-------------------------------------------"
 
-sudo pip install -y tensorflow==2.11.0
-sudo pip install -y pandas
-sudo pip install -y matplotlib
+sudo pip install tensorflow==2.11.0
+sudo pip install pandas
+sudo pip install matplotlib
 
 sudo apt install -y xxd
 
