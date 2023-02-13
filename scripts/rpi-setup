@@ -34,7 +34,7 @@ sudo apt upgrade -y
 echo "-------------------------------------------"
 echo "Installing some general dependencies"
 echo "-------------------------------------------"
-sudo apt install git -y
+sudo apt install -y git
 
 echo "-------------------------------------------"
 echo "Downloading and installing Arduino using AppImage"
@@ -43,7 +43,7 @@ echo "-------------------------------------------"
 # ARM architecture for the v2 IDE. Will come later.
 # This Koen dude did the build for us. So let's use that.
 
-sudo apt install zlib1g-dev fuse libfuse-dev
+sudo apt install -y zlib1g-dev fuse libfuse-dev
 cd
 if [ ! -f "Arduino.AppImage" ]; then
   wget https://github.com/koendv/arduino-ide-raspberrypi/releases/download/2.0.2/Linux_ARM64_app_image.zip
@@ -111,7 +111,7 @@ echo "-------------------------------------------"
 echo "Installing Jupyter Notebook"
 echo "-------------------------------------------"
 
-sudo apt install libffi-dev -y
+sudo apt install -y libffi-dev
 sudo -H pip3 install jupyter
 sudo -H pip3 install pygments
 
