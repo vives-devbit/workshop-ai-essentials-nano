@@ -161,18 +161,5 @@ echo "-------------------------------------------"
 sudo sed -i 's/#xserver-command=X/xserver-command=X -s 0 -p 0 -dpms/g' /etc/lightdm/lightdm.conf
 
 echo "-------------------------------------------"
-echo "Done ..."
+echo "Done ... Best to reboot after running the script ..."
 echo "-------------------------------------------"
-
-read -t 20 -p "Reboot (Y/n)? " answer
-[ -z "$answer" ] && answer="y"  # Yes = default
-case ${answer:0:1} in
-  n|N )
-    echo "Not rebooting ... Done"
-    exit 0
-  ;;
-  * )
-    sudo reboot
-    exit 0
-  ;;
-esac
