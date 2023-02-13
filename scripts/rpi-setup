@@ -164,9 +164,15 @@ echo "-------------------------------------------"
 echo "Done ..."
 echo "-------------------------------------------"
 
-
-read -p "Press any key to reboot or 'q' to quit." answer
-case $answer in
-  [qQ]* ) exit;;
-  * ) sudo reboot;;
+read -t 20 -p "Reboot (Y/n)? " answer
+[ -z "$answer" ] && answer="y"  # Yes = default
+case ${answer:0:1} in
+  n|N )
+    echo "Not rebooting ... Done"
+    exit 0
+  ;;
+  * )
+    sudo reboot
+    exit 0
+  ;;
 esac
