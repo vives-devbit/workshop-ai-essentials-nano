@@ -50,7 +50,10 @@ if [ ! -f "Arduino.AppImage" ]; then
   unzip Linux_ARM64_app_image.zip
   mv arduino-ide_2.0.2_Linux_ARM64.AppImage Arduino.AppImage
   chmod +x Arduino.AppImage
+fi
 
+# Setup Desktop shortcut
+if [ ! -f "$HOME/Desktop/Arduino" ]; then
   cat > $HOME/Desktop/Arduino <<EOF
 [Desktop Entry]
 Comment=Arduino IDE
@@ -60,7 +63,6 @@ Exec=$HOME/Arduino.AppImage
 Type=Application
 Icon=/usr/share/icons/Adwaita/512x512/apps/utilities-terminal.png
 EOF
-
 fi
 
 echo "-------------------------------------------"
@@ -116,6 +118,33 @@ sudo -H pip3 install pygments
 if [ ! -f "$HOME/.jupyter/jupyter_notebook_config.py" ]; then
   jupyter-notebook --generate-config
   grep -qxF 'c.NotebookApp.open_browser = False' $HOME/.jupyter/jupyter_notebook_config.py || echo "c.NotebookApp.open_browser = False" >>  $HOME/.jupyter/jupyter_notebook_config.py
+fi
+
+# Setup Desktop shortcut
+if [ ! -f "$HOME/Desktop/Jupyter" ]; then
+  cat > $HOME/Desktop/Jupyter <<EOF
+[Desktop Entry]
+Comment=Jupyter Notebook
+Terminal=false
+Name=JupyterNotebook
+Exec=jupyter-notebook --no-browser
+Type=Application
+Terminal=true
+Icon=/usr/share/icons/Adwaita/512x512/apps/utilities-terminal.png
+EOF
+fi
+
+echo "-------------------------------------------"
+echo "Cloning/Updating the workshop repository"
+echo "-------------------------------------------"
+
+# Clone the workshop repository
+if [ ! -d "$HOME/workshop-ai-essentials-nano" ]; then
+  cd
+  git clone https://github.com/vives-devbit/workshop-ai-essentials-nano.git
+else
+  cd ~/workshop-ai-essentials-nano
+  git pull origin master
 fi
 
 echo "-------------------------------------------"
