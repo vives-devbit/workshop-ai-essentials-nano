@@ -71,10 +71,11 @@ echo "-------------------------------------------"
 
 # More info @ https://arduino.github.io/arduino-cli/0.29/
 
-if [ ! arduino-cli --version ]; then
+if ! arduino-cli --version; then
   # Install arduino cli
   curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
-  echo 'export PATH=$HOME/bin:${PATH}' >> $HOME/.bashrc
+  echo 'export PATH="$HOME/bin:${PATH}"' >> $HOME/.bashrc
+  source $HOME/.bashrc
 fi
 
 echo "-------------------------------------------"
