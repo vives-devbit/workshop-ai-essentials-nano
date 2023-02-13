@@ -148,5 +148,16 @@ else
 fi
 
 echo "-------------------------------------------"
+echo "Disable DPMS and screen blanking"
+echo "-------------------------------------------"
+
+# Manual:
+# > sudo nano /etc/lightdm/lightdm.conf
+# > xserver-command=X -s 0 -p 0 -dpms
+
+# Or using sed:
+sudo sed -i 's/#xserver-command=X/xserver-command=X -s 0 -p 0 -dpms/g' /etc/lightdm/lightdm.conf
+
+echo "-------------------------------------------"
 echo "Done ..."
 echo "-------------------------------------------"
