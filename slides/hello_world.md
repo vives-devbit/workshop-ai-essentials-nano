@@ -47,6 +47,7 @@ theme: workshop
 - Chromium zou nu moeten geopend zijn
 - Open het bestand `/home/pi/workshop-ai-essentials-nano/hello-world/notebook.ipynb`
 - Het laden kan even duren. Gelieve geduld te hebben en klik op `Wait` indien je een browser melding krijgt.
+- Klik vervolgens op `Kernel => Restart & Clear Output`
 
 ---
 
