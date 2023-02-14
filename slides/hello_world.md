@@ -47,7 +47,10 @@ theme: workshop
 - Chromium zou nu moeten geopend zijn
 - Open het bestand `/home/pi/workshop-ai-essentials-nano/hello-world/notebook.ipynb`
 - Het laden kan even duren. Gelieve geduld te hebben en klik op `Wait` indien je een browser melding krijgt.
-- Klik vervolgens op `Kernel => Restart & Clear Output`
+<!-- - Klik vervolgens op `Kernel => Restart & Clear Output` -->
+- Klik vervolgens op `Thrust Notebook`
+- **Geef elke stap rustig zijn tijd om uit te werken !**
+- **Als rechts bovenaan de kernel als busy aangegeven staat, wacht dan even !**
 
 ---
 

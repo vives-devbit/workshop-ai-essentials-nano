@@ -8,6 +8,8 @@ theme: workshop
 
 Welcome to this introductory workshop into Artificial Intelligence.
 
+[https://github.com/vives-devbit/workshop-ai-essentials-nano](https://github.com/vives-devbit/workshop-ai-essentials-nano)
+
 ---
 
 [![fit](img/dota2.webp)](https://youtu.be/tfb6aEUMC04?t=503)
