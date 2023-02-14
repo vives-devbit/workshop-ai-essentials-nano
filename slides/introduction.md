@@ -172,3 +172,10 @@ In contrast, **unsupervised learning** involves training a neural network using 
    - De getrainde deep neural netwerken (DNN) doen **voorspellingen op nieuwe data** die het model nog nooit eerder heeft gezien.
 
 ![height:350](./img/cat_guacamole_both.png)
+
+# De handen vuil maken
+
+Let's learn a thing or two about AI.
+
+- [Hello World](./hello_world.html)
+- [Flex en Squat](./flex_squat.html)

@@ -94,6 +94,6 @@ Welcome to this introductory workshop into Artificial Intelligence.
 
 Let's learn a thing or two about AI.
 
-- [Introduction in AI](./introduction.md)
-- [Hello World](./hello_world.md)
-- [Flex en Squat](./flex_squat.md)
+- [Introduction in AI](./introduction.html)
+- [Hello World](./hello_world.html)
+- [Flex en Squat](./flex_squat.html)
