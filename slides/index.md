@@ -70,9 +70,9 @@ Welcome to this introductory workshop into Artificial Intelligence.
 - [DALL·E 2](https://labs.openai.com/)
   - Een AI-systeem dat realistische afbeeldingen en kunst kan maken van een beschrijving in natuurlijke taal.
 - [ChatGPT](https://chat.openai.com/)
-  - ChatGPT is een chatbot ontwikkeld door OpenAI en gelanceerd in november 2022.
-  - Het is gebouwd bovenop OpenAI's GPT-3-familie van grote taalmodellen en is verfijnd met behulp van zowel begeleide als versterkende leertechnieken.
-  - We hebben een model getraind met de naam ChatGPT dat op een gemoedelijke manier met elkaar communiceert.
+  - Artificiële chatbot gelanceerd door OpenAI die zeer snelle en gedetailleerde antwoorden kan geven binnen verschillende domeinen.
+  - Het is gebouwd bovenop OpenAI's GPT-3-familie van grote taalmodellen.
+  - Kan op een gemoedelijke manier met je communiceren.
 - [DeepL](https://www.deepl.com/translator)
   - Een dienst voor neurale machinevertaling die in augustus 2017 is gelanceerd en eigendom is van het in Keulen gevestigde DeepL SE.
 
@@ -81,10 +81,12 @@ Welcome to this introductory workshop into Artificial Intelligence.
 # Assistants
 
 - [GitHub Copilot](https://github.com/features/copilot)
-  - Een AI co-programmeur
+  - Een AI co-programmeur van GitHub
   - Hello World Demo met C++
 - [Grammerly](https://app.grammarly.com/)
   - Grammarly is een Amerikaanse schrijf-assistent.
+
+<!-- Nvidia DLSS 3: AI creëert nieuwe beelden in een video game op basis van voorgaande beelden -->
 
 ---
 
@@ -92,6 +94,6 @@ Welcome to this introductory workshop into Artificial Intelligence.
 
 Let's learn a thing or two about AI.
 
-- [Introduction](./introduction.md)
+- [Introduction in AI](./introduction.md)
 - [Hello World](./hello_world.md)
 - [Flex en Squat](./flex_squat.md)
