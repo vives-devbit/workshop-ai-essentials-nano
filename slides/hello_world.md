@@ -35,15 +35,8 @@ theme: workshop
 # Jupyter Notebooks
 
 - Wiskundige documenten die code (typisch Python) en documentatie samen bevatten
-- Open een terminal venster en geef volgende commando in
-
-```bash
-jupyter-notebook --no-browser
-```
-
+- Open de desktop shortcut `Jupyter Notebook`
 - `CTRL` + klik op de URL
-
-TODO: http://localhost:xxxxxx
 
 ![bg right:25% fit](./img/jupyter.png)
 
@@ -52,7 +45,7 @@ TODO: http://localhost:xxxxxx
 # Hello World Notebook
 
 - Chromium zou nu moeten geopend zijn
-- Open het bestand `/home/pi/nano-ble-ai-workshop/hello-world/notebook.ipynb`
+- Open het bestand `/home/pi/workshop-ai-essentials-nano/hello-world/notebook.ipynb`
 - Het laden kan even duren. Gelieve geduld te hebben en klik op `Wait` indien je een browser melding krijgt.
 
 ---
@@ -99,7 +92,7 @@ Voer de verschillende stappen een voor een uit om een idee te krijgen van de wer
 
 # Het model voor TensorFlow Lite
 
-- Resulterend model is terug te vinden in de directory `/home/pi/nano-ble-ai-workshop/hello-world/models`.
+- Resulterend model is terug te vinden in de directory `/home/pi/workshop-ai-essentials-nano/hello-world/models`.
 - `model.cc` bevat het gekwantiseerd model dat we net getrained hebben.
 - De code in deze file gaan we samenvoegen met de applicatie om dit te compileren en te flashen.
 
@@ -112,9 +105,8 @@ Voer de verschillende stappen een voor een uit om een idee te krijgen van de wer
 
 ![](./img/nano-ble-sinus-ai.png)
 
-
 ---
 
-TODO: Combine with the hello world application
-TODO: Provide slides with all the installation steps ?
-TODO: Vertalen van die notebook
+# En nu het serieuze werk
+
+- [Flex en Squat](./flex_squat.html)
