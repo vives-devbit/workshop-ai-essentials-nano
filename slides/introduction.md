@@ -4,7 +4,10 @@ paginate: true
 theme: workshop
 ---
 
-# <!-- fit --> Introduction in AI
+# <!-- fit --> Introductie in AI
+
+"Want tegenwoordig is *AMAI* (Alles Met AI)"
+_Franky Loret_
 
 ---
 
@@ -78,6 +81,8 @@ theme: workshop
   2. **Validatie:** wordt gebruikt tijdens het trainen om model bij te sturen
   3. **Testen:** wordt gebruikt na het trainen om te kijken hoe goed het model werkt
 
+![bg fit left:40%](./img/data-sets.png)
+
 ---
 
 # Deep Learning - Stap per Stap
@@ -108,6 +113,10 @@ theme: workshop
 - Backward propagation: The error is propagated backward through the layers of the neural network, and the contribution of each neuron to the error is calculated.
 - Weight updates: The weights of the connections between the neurons are adjusted based on the contribution of each neuron to the error. -->
 
+<!-- **Supervised learning** involves training a neural network using labeled data, where the correct output is provided for each input. The goal of supervised learning is to learn a mapping between inputs and outputs, so that the network can accurately predict the output for new, unseen inputs. In supervised learning, the network is trained on a specific task, such as image classification, speech recognition, or sentiment analysis.
+
+In contrast, **unsupervised learning** involves training a neural network using unlabeled data, where no information about the correct output is provided. The goal of unsupervised learning is to discover patterns in the data, such as clusters or groups of similar data points. Unsupervised learning is often used for tasks such as data clustering, anomaly detection, and dimensionality reduction. -->
+
 ---
 
 # Deep Learning - Stap per Stap
@@ -115,17 +124,51 @@ theme: workshop
 4. **Evaluatie:** Dit omvat het evalueren van de prestaties van het getrainde model op een aparte validatie dataset of met behulp van cross-validation technieken.
      - De prestaties van het model worden gemeten met verschillende evaluatie metrics
 
-![bg fit right:40%](./img/types-of-neural-networks.png)
+![bg fit right:40%](./img/ai-evaluation.png)
 
 ---
 
+# Deep Learning - Stap per Stap
 
+5. **Fine-tuning:** Dit omvat het aanpassen van het model en de parameters om de prestaties ervan op de validatie dataset te verbeteren.
+      - Dit kan het aanpassen van de leersnelheid, het toevoegen van regularisatietechnieken, het veranderen van de architectuur van het model en het afstemmen van de hyperparameters omvatten.
 
+![bg fit left:40%](./img/fine-tuning.jpg)
 
+---
 
+# Deep Learning - Stap per Stap
 
+6. **Testen:** Dit omvat het testen van het uiteindelijke model op een aparte test dataset om de prestaties ervan op ongeziene data te evalueren.
 
+![bg fit right:50%](./img/testing-data.webp)
 
+---
 
+# Opgelet ! Overfitting
 
+- Het doel van deep learning modellen is om met behulp van trainingsdata goed te generaliseren naar eventuele data uit het probleemdomein.
+- Dit is erg cruciaal omdat we willen dat ons model voorspellingen doet over de ongeziene dataset, dat wil zeggen dat het nog nooit eerder is gezien.
+- Bij overfitting probeert het model te veel details in de trainingsgegevens te leren, samen met de ruis van de trainingsgegevens.
+- Als gevolg hiervan zijn de modelprestaties erg slecht op ongeziene data.
 
+![](./img/overfitting.png)
+
+---
+
+# Volgende stappen?
+
+7. **Kwantisatie:** Indien het model op een microcontroller moet runnen, kunnen we dit het best kwantiseren
+   - Dit vermindert de precisie van de gewichten van het model, en mogelijk ook de activeringen (uitvoer van elke laag), wat geheugen bespaart, vaak zonder veel invloed op de nauwkeurigheid te hebben.
+   - Gekwantiseerde modellen werken ook sneller, omdat de vereiste berekeningen eenvoudiger zijn (gehele getallen versus komma getallen).
+
+![bg fit left:30%](./img/qat-training-precision.png)
+
+---
+
+# Volgende stappen?
+
+8. **Inference:** dit is de fase waarin het netwerk aan het werk wordt gezet en voorspellingen dient uit te voeren.
+   - De getrainde deep neural netwerken (DNN) doen **voorspellingen op nieuwe data** die het model nog nooit eerder heeft gezien.
+
+![height:350](./img/cat_guacamole_both.png)
