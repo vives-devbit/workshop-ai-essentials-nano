@@ -44,8 +44,30 @@ echo "-------------------------------------------"
 sudo apt -y install python3-pip
 
 # install correct version protobuf
-sudo -H pip3 install tensorflow
-sudo -H pip3 install matplotlib pandas
+sudo -H pip3 install --upgrade protobuf==3.20.0
+
+# download tensorflow io
+if [ ! -d "$HOME/io" ]; then
+  cd
+  git clone -b v0.23.1 --depth=1 --recursive https://github.com/tensorflow/io.git
+  cd io
+  python3 setup.py -q bdist_wheel --project tensorflow_io_gcs_filesystem
+  cd dist
+  sudo -H pip3 install tensorflow_io_gcs_filesystem-0.23.1-cp39-cp39-linux_aarch64.whl
+fi
+
+if ! (pip3 list | grep "tensorflow.*2\.10\.0"); then
+  cd
+  # install gdown to download from Google drive
+  sudo -H pip3 install gdown
+
+  # download the wheel
+  gdown https://drive.google.com/uc?id=1G2P-FaHAXJ-UuQAQn_0SYjNwBu0aShpd
+
+  # install TensorFlow 2.10.0
+  sudo -H pip3 install tensorflow-2.10.0-cp39-cp39-linux_aarch64.whl
+  sudo -H pip3 install matplotlib pandas
+fi
 
 echo "-------------------------------------------"
 echo "Downloading and installing Arduino using AppImage"
