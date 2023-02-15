@@ -40,12 +40,16 @@ echo "-------------------------------------------"
 echo "Installing tensorflow"
 echo "-------------------------------------------"
 ## Source: https://qengineering.eu/install-tensorflow-on-raspberry-64-os.html
+### Ok never mind. Just installed latest tensorflow
 
 sudo apt -y install python3-pip
 
-# install correct version protobuf
-sudo -H pip3 install tensorflow
+# Tensorflow 2.11.0 works!
+sudo -H pip3 install tensorflow==2.11.0
 sudo -H pip3 install matplotlib pandas
+
+# Fix export not working because of missing EndVector() arg
+sudo -H pip3 install -U flatbuffers=23.1.21
 
 echo "-------------------------------------------"
 echo "Downloading and installing Arduino using AppImage"
