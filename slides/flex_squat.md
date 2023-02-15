@@ -281,17 +281,20 @@ edge-impulse-daemon
 
 ---
 
-## Edge Impulse
+# Builden van het demo project
 
-Setup integration with board:
+- Open Arduino IDE
+- Importeer de zip-file als library via `Sketch => Include Library => Add .ZIP Library`
+- Navigeer vervolgens naar `File => Examples => flex-squat-detector_inferencing`
+  - Kies `nano_33_ble_sense => nano_33_ble_sense_fusion`
+- Zorg er voor dat je het Arduino Nano 33 BLE Sense board hebt geselecteerd.
+- Klik op `Upload`
+- Relax even
 
-https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/arduino-nano-33-ble-sense
-https://arduino.github.io/arduino-cli/0.30/installation/
+---
 
+# What is Next?
 
-To restart fresh
-```
-edge-impulse-daemon --clean
-```
+---
 
-Once the model is created we can create an arduino library which we can use. Then we just select the `nano_ble33_sense_fusion` example project.
+![bg](./img/morgan_freeman.webp)
