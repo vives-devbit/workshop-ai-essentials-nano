@@ -159,6 +159,14 @@ echo "-------------------------------------------"
 
 sudo npm install -g edge-impulse-cli
 
+if [ ! -d "$HOME/edge-impulse-data-forwarder" ]; then
+  mkdir "$HOME/edge-impulse-data-forwarder"
+  cd "$HOME/edge-impulse-data-forwarder"
+  wget https://cdn.edgeimpulse.com/firmware/arduino-nano-33-ble-sense.zip
+  unzip arduino-nano-33-ble-sense.zip
+  cd
+fi
+
 echo "-------------------------------------------"
 echo "Cloning/Updating the workshop repository"
 echo "-------------------------------------------"
