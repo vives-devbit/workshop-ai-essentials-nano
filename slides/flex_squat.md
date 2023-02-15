@@ -202,6 +202,82 @@ edge-impulse-daemon
 - Merk op dat er warning staat bij `TRAIN / TEST SPLIT`
 - Om de training van het toekomstige neurale netwerk te valideren, moet de dataset worden opgesplitst in een deel om te trainen en een deel om het resulterende netwerk te testen.
 - In plaats van dit handmatig te doen, kunnen we Edge Impulse dit voor ons laten doen.
+- Ga hiervoor naar `Dashboard` scroll naar beneden en klik op `Perform train/test split`
+  - Dit kan niet ongedaan gemaakt worden.
+
+---
+
+# Heavy Lifting - Een model maken
+
+- Kies in het menu voor `Impulse design`
+- Kies de window size voor de input hetzelfde als de lengte van je samples
+
+![bg fit right:40%](./img/time-series-data.png)
+
+---
+
+# Processing Block
+
+- Vervolgens gaan we een processing block toevoegen
+  - `Spectral Analysis`
+    - Deze block gaat een frequentie-analyse uitvoeren op de tijds-data
+  - We zouden de data ook ruw kunnen verwerken maar betere resultaten worden hier bekomen door eerst deze processing te doen
+
+![bg fit left:40%](./img/spectral-analysis.png)
+
+---
+
+# Learning Block
+
+- Het echte werk wordt dan gedaan door een `Learning block` toe te voegen die ons neuraal netwerk zal modeleren.
+  - In ons geval gaan we voor `Classification`
+    - Leert patronen uit data en kan deze toepassen op nieuwe data.
+    - Geweldig voor het categoriseren van beweging of het herkennen van audio.
+- Eens je klaar bent kies je voor `Save Impulse`
+
+![bg fit right:40%](./img/classification.png)
+
+---
+
+# Processen van de input data
+
+- Kies links in het menu `Spectral Features` en klik op `Save Parameters`
+  - Selecteer `Calculate feature importance`
+  - Nu kan je `Generate Features` selecteren, wat de processing van de data in gang zal zetten.
+  - Dit kan even duren
+  - Het resultaat zou "geclusterde" data moeten opleveren
+
+![bg fit left:35%](./img/resulting-data.png)
+
+---
+
+# Aanpassen/Trainen van het model
+
+- Kies links in het menu voor `Classifier`
+- In principe kan je dit model behouden zoals het is en kan je het gewoon trainen
+  - Klik op `Start Training`
+
+![bg fit right:50%](./img/result-model-training.png)
+
+---
+
+# Test Data Set
+
+- Je kan je model nu ook nog eens testen met ongeziene data
+- Dit kan je via het item `Model testing` links in het menu.
+
+![](./img/model-testing.png)
+
+---
+
+# Deployen op het Edge Device
+
+- Als laatste kunnen we ons model nu exporteren zodat we het kunnen integreren in onze code
+- Kies links in het menu voor `Deployment`
+  - Kies vervolgens voor de `Arduino Library`
+  - En klik helemaal onderaan op `Build`
+- Je zou nu een zip-file moeten krijgen.
+  - Download deze in de map `workshop-ai-essentials-nano/flex-squat`
 
 ---
 
